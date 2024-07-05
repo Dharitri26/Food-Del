@@ -18,7 +18,7 @@ const List = ({url}) => {
   }
 
   const removeFood = async(foodId) => {
-    const response = await axios.post(`${url}/api/food/remove`,{id:foodId})
+    const response = await axios.post(`₹{url}/api/food/remove`,{id:foodId})
     await fetchList();
     if (response.data.success) {
         toast.success(response.data.message)
@@ -49,7 +49,7 @@ const List = ({url}) => {
                <img src={`${url}/images/`+item.image} alt="" />
                <p>{item.name}</p>
                <p>{item.category}</p>
-               <p>${item.price}</p>
+               <p>₹{item.price}</p>
                <p onClick={()=>removeFood(item._id)} className='cursor'>X</p>
             </div>
            )
